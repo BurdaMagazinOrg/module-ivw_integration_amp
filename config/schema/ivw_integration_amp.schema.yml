@@ -1,0 +1,7 @@
+ivw_integration_amp.settings:
+  type: mapping
+  label: 'IVW Settings (AMP)'
+  mapping:
+    amp_domain_prefix:
+      type: string
+      label: Domain prefix from which the IVW iFrame will be displayed (protocol + domain)

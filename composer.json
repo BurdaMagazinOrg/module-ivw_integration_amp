@@ -1,0 +1,12 @@
+
+{
+    "name": "burdamagazinorg/ivw_integration_amp",
+    "type": "drupal-module",
+    "minimum-stability": "dev",
+    "authors": [
+      {
+        "name": "Mārtiņš Bērtiņš",
+        "email": "martins.bertins@wunder.io"
+      }
+    ]
+}
