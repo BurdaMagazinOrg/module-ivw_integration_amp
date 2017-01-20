@@ -150,8 +150,10 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
     $langcode = NULL
   ) {
     $elements = [];
-    $ampDomainPrefix = $this->configFactory->get('ivw_integration_amp.settings')
+    $domain = $this->configFactory
+      ->get('ivw_integration_amp.settings')
       ->get('amp_analytics_infonline_domain');
+    $module_path = drupal_get_path('module', 'ivw_integration_amp');
 
     // core token devs don't like the concept of callable
     // getting the method of the static class as closure keeps the callback overridable by subclasses
@@ -168,7 +170,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
           'callback' => $callback,
         ]
       );
-      $url = "https://$ampDomainPrefix/sites/all/mdoules/contrib/ivw_integration_amp/pages/amp-analytics-infoline.html";
+      $url = "https://$domain/$module_path/pages/amp-analytics-infonline.html";
 
       $elements[$delta] = [
         '#type' => 'ivw_amp',
