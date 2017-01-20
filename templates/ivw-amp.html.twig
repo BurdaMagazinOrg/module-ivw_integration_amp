@@ -1,13 +1,5 @@
 <amp-analytics type="infonline" id="infonline">
   <script type="application/json">
-  {
-    "vars": {
-      "st":  {{ st }},
-      "cp":  {{ cp }}
-    },
-    "requests": {
-      "url": {{ url }}
-    }
-  }
+    {{ data|json_encode()|raw }}
   </script>
 </amp-analytics>

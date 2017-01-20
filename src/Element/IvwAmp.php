@@ -12,9 +12,7 @@ use Drupal\Core\Render\Element\RenderElement;
  * component.
  *
  * Properties:
- * - #url: HTTPS location of IVW script.
- * - #st: Site ID.
- * - #cp: Code.
+ * - #data: The variables required by the analytics element.
  *
  * @RenderElement("ivw_amp")
  */
@@ -27,9 +25,7 @@ class IvwAmp extends RenderElement {
     $class = get_class($this);
     return array(
       '#theme' => 'ivw_amp',
-      '#url' => NULL,
-      '#st' => NULL,
-      '#cp' => NULL,
+      '#data' => NULL,
       '#pre_render' => array(
         array($class, 'preRenderIvwAmp'),
       ),
@@ -37,7 +33,7 @@ class IvwAmp extends RenderElement {
   }
 
   /**
-   * Pre-render callback: Attaches the amp-carousel library.
+   * Pre-render callback: Attaches the amp-analytics library.
    */
   public static function preRenderIvwAmp($element) {
     $element['#attached']['library'][] = 'amp/amp.analytics';

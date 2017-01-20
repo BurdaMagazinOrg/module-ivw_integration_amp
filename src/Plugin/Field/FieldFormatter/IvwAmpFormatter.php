@@ -168,29 +168,19 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
           'callback' => $callback,
         ]
       );
-//      $url = $ampDomainPrefix . '?' . http_build_query(
-//          array(
-//            'st' => $this->configFactory->get('ivw_integration.settings')->get(
-//              'mobile_site'
-//            ),
-//            'cp' => $this->tokenService->replace(
-//              $this->configFactory->get('ivw_integration.settings')->get(
-//                'code_template'
-//              ),
-//              ['entity' => $items->getEntity()],
-//              [
-//                'sanitize' => FALSE,
-//                'callback' => $callback,
-//              ]
-//            ),
-//          )
-//        );
+      $url = "https://$ampDomainPrefix/sites/all/mdoules/contrib/ivw_integration_amp/pages/amp-analytics-infoline.html";
 
       $elements[$delta] = [
         '#type' => 'ivw_amp',
-        '#url' => $ampDomainPrefix,
-        '#st' => $st,
-        '#cp' => $cp,
+        '#data' => [
+          'vars' => [
+            'st' => $st,
+            'cp' => $cp,
+          ],
+          'requests' => [
+            'url' => $url,
+          ],
+        ],
       ];
     }
     return $elements;

@@ -8,9 +8,7 @@ function ivw_integration_amp_theme() {
     'ivw_amp' => [
       'template' => 'ivw-amp',
       'variables' => [
-        'url' => NULL,
-        'st' => NULL,
-        'cp' => NULL,
+        'data' => NULL,
       ],
     ],
   ];
