@@ -138,7 +138,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
   ) {
     if (isset($replacements['[ivw:delivery]'])) {
       // Token calls the callback after escaping the replacements...
-//      $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
+      // $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
     }
   }
 
@@ -151,7 +151,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
   ) {
     $elements = [];
     $ampDomainPrefix = $this->configFactory->get('ivw_integration_amp.settings')
-      ->get('amp_domain_prefix');
+      ->get('amp_analytics_infonline_domain');
 
     // core token devs don't like the concept of callable
     // getting the method of the static class as closure keeps the callback overridable by subclasses

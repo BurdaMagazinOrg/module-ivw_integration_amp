@@ -2,6 +2,6 @@ ivw_integration_amp.settings:
   type: mapping
   label: 'IVW Settings (AMP)'
   mapping:
-    amp_domain_prefix:
+    amp_analytics_infonline_domain:
       type: string
-      label: Domain prefix from which the IVW iFrame will be displayed (protocol + domain)
+      label: Domain for loading amp-analytics-infonline.html
