@@ -121,7 +121,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
   /**
    * Helper callback that alters returned token replacements.
    *
-   * This is needed as we always want "delivery" ("D") set to "2" with FBIA,
+   * This is needed as we always want "delivery" ("D") set to "2" with AMP,
    * but there is no way to configure this outside of the node / term config
    * hierarchy.
    *
@@ -138,7 +138,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
   ) {
     if (isset($replacements['[ivw:delivery]'])) {
       // Token calls the callback after escaping the replacements...
-      // $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
+       $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
     }
   }
 
