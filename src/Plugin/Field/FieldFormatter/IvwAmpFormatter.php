@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\ivw_integration\Plugin\Field\FieldFormatter\IvwEmptyFormatter.
+ * Contains Drupal\ivw_integration_amp\Plugin\Field\FieldFormatter\IvwAmpFormatter.
  */
 
 namespace Drupal\ivw_integration_amp\Plugin\Field\FieldFormatter;
