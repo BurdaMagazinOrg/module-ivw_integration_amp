@@ -1,6 +1,6 @@
-name: IVW Tracking (FIA)
+name: IVW Tracking (AMP)
 type: module
-description: 'IVW (SZM 2) tracking FIA extension'
+description: 'IVW (SZM 2) tracking AMP extension'
 package: Tracking
 core: 8.x
 
