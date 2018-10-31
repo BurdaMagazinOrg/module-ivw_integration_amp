@@ -138,7 +138,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
   ) {
     if (isset($replacements['[ivw:delivery]'])) {
       // Token calls the callback after escaping the replacements...
-       $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
+      $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
     }
   }
 
