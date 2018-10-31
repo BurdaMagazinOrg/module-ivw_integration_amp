@@ -140,6 +140,11 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
       // Token calls the callback after escaping the replacements...
       $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
     }
+    if (isset($replacements['[ivw:homepage]'])) {
+      // on AMP, we do not wish to have any homepage, the
+      // real homepage is not present there.
+      $replacements['[ivw:homepage]'] = new HtmlEscapedText('2');
+    }
   }
 
   /**
