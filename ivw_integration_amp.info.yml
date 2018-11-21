@@ -6,4 +6,3 @@ core: 8.x
 
 dependencies:
   - ivw_integration
-  - fb_instant_articles
