@@ -167,7 +167,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
 
     foreach ($items as $delta => $item) {
       $st = $this->configFactory->get('ivw_integration.settings')->get('mobile_site');
-      $cp = $this->tokenService->replace(
+      $cp = 'amp-' . $this->tokenService->replace(
         $this->configFactory->get('ivw_integration.settings')->get('code_template'),
         ['entity' => $items->getEntity()],
         [
