@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\ivw_integration_amp\Plugin\Field\FieldFormatter\IvwAmpFormatter.
- */
-
 namespace Drupal\ivw_integration_amp\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Render\HtmlEscapedText;
@@ -34,16 +29,22 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInterface {
 
   /**
+   * The IVW lookup service interface.
+   *
    * @var \Drupal\ivw_integration\IvwLookupServiceInterface
    */
   protected $ivwLookupService;
 
   /**
+   * The config factory interface.
+   *
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   protected $configFactory;
 
   /**
+   * The token utility.
+   *
    * @var \Drupal\Core\Utility\Token
    */
   protected $tokenService;
@@ -66,8 +67,11 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
    * @param array $third_party_settings
    *   Any third party settings.
    * @param \Drupal\ivw_integration\IvwLookupServiceInterface $ivwLookupService
+   *   The IVW lookup service.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   *   The config factory.
    * @param \Drupal\Core\Utility\Token $token
+   *   The token utility.
    */
   public function __construct(
     $plugin_id,
@@ -126,9 +130,13 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
    * hierarchy.
    *
    * @param array $replacements
+   *   Replacements as an array.
    * @param array $data
+   *   Data as an array.
    * @param array $options
-   * @param \Drupal\Core\Render\BubbleableMetadata|NULL $bubbleable_metadata
+   *   Options as an array.
+   * @param \Drupal\Core\Render\BubbleableMetadata|null $bubbleable_metadata
+   *   Bubbleable metadata or null.
    */
   public static function alterReplacements(
     array &$replacements,
@@ -141,7 +149,7 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
       $replacements['[ivw:delivery]'] = new HtmlEscapedText('2');
     }
     if (isset($replacements['[ivw:homepage]'])) {
-      // on AMP, we do not wish to have any homepage, the
+      // On AMP, we do not wish to have any homepage, the
       // real homepage is not present there.
       $replacements['[ivw:homepage]'] = new HtmlEscapedText('2');
     }
@@ -160,8 +168,9 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
       ->get('amp_analytics_infonline_domain');
     $module_path = drupal_get_path('module', 'ivw_integration_amp');
 
-    // core token devs don't like the concept of callable
-    // getting the method of the static class as closure keeps the callback overridable by subclasses
+    // Core token devs don't like the concept of callable.
+    // Getting the method of the static class as closure keeps
+    // the callback overridable by subclasses.
     $class = new ReflectionClass(static::class);
     $callback = $class->getMethod('alterReplacements')->getClosure();
 
@@ -192,6 +201,5 @@ class IvwAmpFormatter extends FormatterBase implements ContainerFactoryPluginInt
     }
     return $elements;
   }
-
 
 }

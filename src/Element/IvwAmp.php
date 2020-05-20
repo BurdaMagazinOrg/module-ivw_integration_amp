@@ -23,13 +23,16 @@ class IvwAmp extends RenderElement {
    */
   public function getInfo() {
     $class = get_class($this);
-    return array(
+    return [
       '#theme' => 'ivw_amp',
       '#data' => NULL,
-      '#pre_render' => array(
-        array($class, 'preRenderIvwAmp'),
-      ),
-    );
+      '#pre_render' => [
+        [
+          $class,
+          'preRenderIvwAmp',
+        ],
+      ],
+    ];
   }
 
   /**
@@ -39,4 +42,5 @@ class IvwAmp extends RenderElement {
     $element['#attached']['library'][] = 'amp/amp.analytics';
     return $element;
   }
+
 }
